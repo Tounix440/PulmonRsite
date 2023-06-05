@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site - S'inscrire</title>
+    <style>
+        body {
+            background-color: #ff82c4;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .inscription-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .inscription-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .inscription-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .inscription-form input[type="text"],
+        .inscription-form input[type="email"],
+        .inscription-form input[type="password"],
+        .inscription-form input[type="tel"],
+        .inscription-form input[type="number"],
+        .inscription-form input[type="confirm password"] {
+            display: block;
+            width: 93%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .inscription-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Language selector */
+        .translate-select {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+        }
+
+        .translate-select select {
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        // Function to change the language
+        function changeLanguage(language) {
+            // Language translation mappings
+            var translations = {
+                'fr': {
+                    'title': "Mon Site - S'inscrire",
+                    'register': "S'inscrire",
+                    'first_name': 'Prénom :',
+                    'last_name': 'Nom :',
+                    'username': "Nom d'utilisateur :",
+                    'email': 'Email :',
+                    'phone': 'Numéro de téléphone :',
+                    'age': 'Age :',
+                    'password': 'Mot de passe :',
+                    'confirm_password': 'Confirmez votre mot de passe :'
+                },
+                'en': {
+                    'title': 'My Site - Register',
+                    'register': 'Register',
+                    'first_name': 'First Name:',
+                    'last_name': 'Last Name:',
+                    'username': 'Username:',
+                    'email': 'Email:',
+                    'phone': 'Phone Number:',
+                    'age': 'Age:',
+                    'password': 'Password:',
+                    'confirm_password': 'Confirm Password:'
+                },
+                'es': {
+                    'title': 'Mi Sitio - Registrarse',
+                    'register': 'Registrarse',
+                    'first_name': 'Nombre:',
+                    'last_name': 'Apellido:',
+                    'username': 'Nombre de usuario:',
+                    'email': 'Email:',
+                    'phone': 'Número de teléfono:',
+                    'age': 'Edad:',
+                    'password': 'Contraseña:',
+                    'confirm_password': 'Confirmar contraseña:'
+                },
+                'zh': {
+                    'title': '我的网站 - 注册',
+                    'register': '注册',
+                    'first_name': '名字：',
+                    'last_name': '姓氏：',
+                    'username': '用户名：',
+                    'email': '邮箱：',
+                    'phone': '电话号码：',
+                    'age': '年龄：',
+                    'password': '密码：',
+                    'confirm_password': '确认密码：'
+                },
+                'ar': {
+                    'title': 'موقعي - التسجيل',
+                    'register': 'التسجيل',
+                    'first_name': 'الاسم الأول:',
+                    'last_name': 'الاسم الأخير:',
+                    'username': 'اسم المستخدم:',
+                    'email': 'البريد الإلكتروني:',
+                    'phone': 'رقم الهاتف:',
+                    'age': 'العمر:',
+                    'password': 'كلمة المرور:',
+                    'confirm_password': 'تأكيد كلمة المرور:'
+                }
+            };
+
+            // Update the page elements with translations based on the selected language
+            var elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(function(element) {
+                var key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    element.innerHTML = translations[language][key];
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="inscription-form">
+        <h2 data-translate="register">S'inscrire</h2>
+        <form>
+            <label for="prenom" data-translate="first_name">Prénom :</label>
+            <input type="text" name="prenom" id="prenom" placeholder="Prénom" required>
+            <label for="nom" data-translate="last_name">Nom :</label>
+            <input type="text" name="nom" id="nom" placeholder="Nom" required>
+            <label for="username" data-translate="username">Nom d'utilisateur :</label>
+            <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" required>
+            <label for="email" data-translate="email">Email :</label>
+            <input type="email" name="email" id="email" placeholder="Adresse e-mail" required>
+            <label for="telephone" data-translate="phone">Numéro de téléphone :</label>
+            <input type="tel" name="telephone" id="telephone" placeholder="Numéro de téléphone" required>
+            <label for="age" data-translate="age">Age :</label>
+            <input type="number" name="age" id="age" placeholder="Age" min="1" required max="120">
+            <label for="password" data-translate="password">Mot de passe :</label>
+            <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+            <label for="confirm password" data-translate="confirm_password">Confirmez votre mot de passe :</label>
+            <input type="password" name="confirm password" id="confirm password" placeholder="Confirmez votre mot de passe" required>
+            <button type="submit" data-translate="register">S'inscrire</button>
+        </form>
+    </div>
+
+    <!-- Language selector -->
+    <div class="translate-select">
+        <select onchange="changeLanguage(this.value)">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+
+    <!-- Set the initial language to French -->
+    <script>
+        changeLanguage('fr');
+    </script>
+</body>
+</html>

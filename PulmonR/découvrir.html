@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site - Découvrir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff82c4;
+            color: #000000;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav img {
+            height: 50px;
+            margin-left: 10px;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .decouvrir-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .decouvrir-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 50%;
+            padding: 10px;
+        }
+
+        .decouvrir-text {
+            flex: 1;
+            min-width: 250px;
+            max-width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Style pour le bouton de traduction */
+        .translate-button {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .translate-button select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <img src="logo_pulmonr.png" alt="Logo de Pulmon'R">
+        <a href="connexion.html">Se connecter</a>
+        <a href="inscription.html">S'inscrire</a>
+        <a href="découvrir.html">Découvrir</a>
+        <a href="faq.html">F.A.Q</a>
+        <a href="Boutique.html">Boutique</a>
+        <a href="mentions_legales.html">Mentions légales</a>
+    </nav>
+
+
+    <!-- Contenu de la page Découvrir -->
+    <div class="content">
+        <div class="translate-button">
+            <select onchange="translatePage(this.value)">
+                <option value="">Sélectionner une langue</option>
+                <option value="en">Anglais</option>
+                <option value="es">Espagnol</option>
+                <option value="zh">Chinois</option>
+                <option value="ar">Arabe</option>
+            </select>
+        </div>
+        <h1>Découvrir</h1>
+        <div class="decouvrir-container">
+            <div class="decouvrir-image">
+                <img src="appareil_pulmonr.png" alt="Description de l'image">
+            </div>
+            <div class="decouvrir-text">
+                <p>
+                    A l'aide de ses capteurs de son, microparticules et température, notre appareil offre un bilan complet et détaillé de la qualité de l'air ambiant dans votre pièce, vous offrant ainsi sérénité et confort, tout en vous alertant de potentiels changements de celui-ci.
+                </p>
+                <p>
+                    Ignorer la qualité de son air sera désormais du passé.
+                </p>
+            </div>
+        </div>
+
+        <script>
+            function translatePage(language) {
+                var pageTitle = document.querySelector("title");
+                var title = document.querySelector("h1");
+                var text = document.querySelectorAll("p");
+
+                if (language === "en") {
+                    pageTitle.textContent = "My Site - Discover";
+                    title.textContent = "Discover";
+                    text[0].textContent = "Using its sound, microparticle, and temperature sensors, our device provides a complete and detailed assessment of the ambient air quality in your room, offering you serenity and comfort, while alerting you to potential changes in it.";
+                    text[1].textContent = "Ignoring the quality of your air will now be a thing of the past.";
+                } else if (language === "es") {
+                    pageTitle.textContent = "Mi Sitio - Descubrir";
+                    title.textContent = "Descubrir";
+                    text[0].textContent = "Utilizando sus sensores de sonido, micropartículas y temperatura, nuestro dispositivo ofrece una evaluación completa y detallada de la calidad del aire ambiente en su habitación, brindándole serenidad y comodidad, al tiempo que le alerta sobre posibles cambios en ella.";
+                    text[1].textContent = "Ignorar la calidad del aire será cosa del pasado.";
+                } else if (language === "zh") {
+                    pageTitle.textContent = "我的网站 - 发现";
+                    title.textContent = "发现";
+                    text[0].textContent = "通过声音、微粒和温度传感器，我们的设备为您的房间提供了环境空气质量的全面和详细评估，为您提供宁静和舒适，同时警报您可能的变化。";
+                    text[1].textContent = "忽视空气质量将成为过去。";
+                } else if (language === "ar") {
+                    pageTitle.textContent = "موقعي - اكتشف";
+                    title.textContent = "اكتشف";
+                    text[0].textContent = "باستخدام أجهزتنا ذات الحساسات الصوتية والجسيمات الدقيقة ودرجة الحرارة، يوفر جهازنا تقييمًا كاملاً ومفصلاً لجودة الهواء المحيط في غرفتك، مما يوفر لك الهدوء والراحة، مع التنبيه لكم للتغييرات المحتملة فيها.";
+                    text[1].textContent = "سيصبح تجاهل جودة الهواء أمرًا من الماضي.";
+                } else {
+                    pageTitle.textContent = "Mon Site - Découvrir";
+                    title.textContent = "Découvrir";
+                    text[0].textContent = "A l'aide de ses capteurs de son, microparticules et température, notre appareil offre un bilan complet et détaillé de la qualité de l'air ambiant dans votre pièce, vous offrant ainsi sérénité et confort, tout en vous alertant de potentiels changements de celui-ci.";
+                    text[1].textContent = "Ignorer la qualité de son air sera désormais du passé.";
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

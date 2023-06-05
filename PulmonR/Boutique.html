@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site - Boutique</title>
+    <style>
+        /* Style pour la barre de navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff82c4;
+            color: #000000;
+            padding: 10px;
+        }
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        nav img {
+            height: 50px;
+            margin-left: 10px;
+        }
+
+        /* Style pour la boutique */
+        .content {
+            padding: 20px;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .item img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .item-info {
+            flex-grow: 1;
+        }
+        .item-buttons {
+            display: flex;
+            margin-top: 10px;
+        }
+        .buy-button {
+            margin-right: 10px;
+            padding: 5px 10px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #cart {
+            margin-top: 20px;
+        }
+        #cart h2 {
+            margin-bottom: 10px;
+        }
+        #cart-items {
+            margin-bottom: 10px;
+        }
+        #cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        #cart-total {
+            font-weight: bold;
+        }
+        #reset-cart {
+            padding: 5px 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <img src="logo_pulmonr.png" alt="Logo de Pulmon'R">
+        <a href="connexion.html">Se connecter</a>
+        <a href="inscription.html">S'inscrire</a>
+        <a href="découvrir.html">Découvrir</a>
+        <a href="faq.html">F.A.Q</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="mentions_legales.html">Mentions légales</a>
+    </nav>
+
+    <!-- Contenu de la page Boutique -->
+    <div class="content">
+        <div class="item">
+            <img src="appareil_pulmonr.png" alt="Capteur Pulmon'R">
+            <div class="item-info">
+                <h3>Capteur Pulmon'R</h3>
+                <p>Prix : 159.99 euros</p>
+                <div class="item-buttons">
+                    <button class="buy-button" onclick="addItemToCart('Capteur Pulmon\'R', 159.99)">Suivant</button>
+                    <button class="buy-button" onclick="addToCart('Capteur Pulmon\'R', 159.99)">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="batterie.png" alt="Batterie">
+            <div class="item-info">
+                <h3>Batterie</h3>
+                <p>Prix : 5 euros</p>
+                <div class="item-buttons">
+                    <button class="buy-button" onclick="addItemToCart('Batterie', 5)">Suivant</button>
+                    <button class="buy-button" onclick="addToCart('Batterie', 5)">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="cables.png" alt="Câble d'alimentation">
+            <div class="item-info">
+                <h3>Câble d'alimentation</h3>
+                <p>Prix : 5 euros</p>
+                <div class="item-buttons">
+                    <button class="buy-button" onclick="addItemToCart('Câble d\'alimentation', 5)">Suivant</button>
+                    <button class="buy-button" onclick="addToCart('Câble d\'alimentation', 5)">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panier -->
+        <div id="cart">
+            <h2>Panier</h2>
+            <div id="cart-items"></div>
+            <div>
+                <button id="reset-cart" onclick="resetCart()">Réinitialiser le panier</button>
+                <p>Total : <span id="cart-total">0</span> euros</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script pour la gestion du panier -->
+    <script>
+        var cartItems = [];
+        var cartTotal = 0;
+
+        function addToCart(itemName, itemPrice) {
+            cartItems.push({
+                name: itemName,
+                price: itemPrice
+            });
+            cartTotal += itemPrice;
+
+            updateCart();
+        }
+
+        function addItemToCart(itemName, itemPrice) {
+            addToCart(itemName, itemPrice);
+            scrollToCart();
+        }
+
+        function resetCart() {
+            cartItems = [];
+            cartTotal = 0;
+
+            updateCart();
+        }
+
+        function updateCart() {
+            var cartItemsElement = document.getElementById("cart-items");
+            cartItemsElement.innerHTML = "";
+
+            cartItems.forEach(function(item) {
+                var itemElement = document.createElement("div");
+                itemElement.id = "cart-item";
+                itemElement.innerHTML = "<span>" + item.name + "</span><span>" + item.price + " euros</span>";
+                cartItemsElement.appendChild(itemElement);
+            });
+
+            var cartTotalElement = document.getElementById("cart-total");
+            cartTotalElement.textContent = cartTotal.toFixed(2);
+        }
+
+        function scrollToCart() {
+            var cartElement = document.getElementById("cart");
+            cartElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+
+

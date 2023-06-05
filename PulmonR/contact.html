@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contacter le service client</title>
+    <style>
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .icon {
+            margin-right: 5px;
+            height: 20px; /* Adjust the height as needed */
+            width: 20px; /* Adjust the width as needed */
+        }
+        
+        .copy-button {
+            padding: 5px 10px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contacter le service client</h1>
+    <p>Vous pouvez nous contacter en utilisant les informations suivantes :</p>
+    <ul>
+        <li class="contact-info">
+            <img src="mail.png" alt="Email Icon" class="icon">
+            <span>Email : serviceclient@pulmonr.com</span>
+            <button class="copy-button" onclick="copyEmail()">Copier</button>
+        </li>
+        <li class="contact-info">
+            <img src="telephone.png" alt="Phone Icon" class="icon">
+            <span>Téléphone : 0123456789</span>
+        </li>
+        <li>Adresse : 123 Rue du Service Client, 75000 Ville</li>
+    </ul>
+
+    <script>
+        function copyEmail() {
+            var emailElement = document.querySelector('.contact-info:nth-child(1) span');
+            var email = emailElement.innerText;
+            
+            navigator.clipboard.writeText(email)
+                .then(function() {
+                    alert('L\'adresse email a été copiée !');
+                })
+                .catch(function(error) {
+                    console.error('Erreur lors de la copie de l\'adresse email :', error);
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Site</title>
+    <style>
+        /* Style pour la barre de navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff82c4;
+            color: #000000;
+            padding: 10px;
+        }
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        nav img {
+            height: 50px;
+            margin-left: 10px;
+        }
+        
+        /* Style pour le contenu de la page */
+        body {
+            background-color: #ffffff;
+        }
+        
+        #logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* LIGNE À MODIFIER */
+            background-image: url('ciel rose.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Style pour la trace de la souris */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background-color: #ff82c4;
+            mix-blend-mode: screen;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        /* Style pour le bas de page */
+        footer {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        
+        /* Style pour les boutons d'achat */
+        .buy-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        
+        /* Style pour les étudiants */
+        .student-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .student-image {
+            flex: 1;
+            max-width: 25%;
+            padding: 10px;
+        }
+        
+        .student-text {
+            flex: 1;
+            max-width: 50%;
+            padding: 10px;
+        }
+        
+        .student-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .student-description {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <img src="logo_pulmonr.png" alt="Logo de Pulmon'R">
+        <a href="connexion.html">Se connecter</a>
+        <a href="inscription.html">S'inscrire</a>
+        <a href="découvrir.html">Découvrir</a>
+        <a href="faq.html">F.A.Q</a>
+        <a href="Boutique.html">Boutique</a>
+        <a href="mentions_legales.html">mentions legales</a>
+    </nav>
+
+    <!-- Contenu de la page d'accueil -->
+    <div id="logo-container">
+        <!-- Emplacement pour les photos des étudiants -->
+    </div>
+
+    <!-- Descriptions des étudiants -->
+    <div class="student-container">
+        <div class="student-image">
+            <img src="EDGAR.png.jpg" alt="Photo d'Edgar" style="max-width: 100%;">
+        </div>
+        <div class="student-text">
+            <h2 class="student-name">Edgar</h2>
+            <p class="student-description">Étudiant en génie électrique, Edgar est passionné par la technologie et l'innovation. Il apporte son expertise en matière de capteurs et de traitement des données pour améliorer la qualité de l'air.</p>
+        </div>
+    </div>
+
+    <div class="student-container">
+        <div class="student-image">
+            <img src="anas.png.jpg" alt="Photo d'Anas" style="max-width: 100%;">
+        </div>
+        <div class="student-text">
+            <h2 class="student-name">Anas</h2>
+            <p class="student-description">Spécialisé en génie logiciel, Anas est responsable du développement de l'application Pulmon'R. Il veille à ce que l'expérience utilisateur soit fluide et intuitive.</p>
+        </div>
+    </div>
+
+    <div class="student-container">
+        <div class="student-image">
+            <img src="thoomas.JPG" alt="Photo de Thomas" style="max-width: 100%;">
+        </div>
+        <div class="student-text">
+            <h2 class="student-name">Thomas</h2>
+            <p class="student-description">Étudiant en génie mécanique, Thomas est chargé de concevoir le boîtier de l'appareil Pulmon'R. Il s'assure que le design soit à la fois esthétique et fonctionnel.</p>
+        </div>
+    </div>
+
+    <div class="student-container">
+        <div class="student-image">
+            <img src="sacha.png.jpg" alt="Photo de Sacha" style="max-width: 100%;">
+        </div>
+        <div class="student-text">
+            <h2 class="student-name">Sacha</h2>
+            <p class="student-description">Passionné par l'intelligence artificielle, Sacha est responsable de l'analyse des données collectées par l'appareil Pulmon'R. Il développe des modèles de prédiction pour détecter les éventuelles anomalies de la qualité de l'air.</p>
+        </div>
+    </div>
+
+    <!-- Bas de page -->
+    <footer>
+        <a href="contact.html">Contacter le service client</a>
+        <a href="cgu.html">CGU</a>
+    </footer>
+    
+    
+
+    <!-- Script pour la trace de la souris -->
+    <script>
+        document.addEventListener("mousemove", function(event) {
+            var x = event.pageX;
+            var y = event.pageY;
+            
+            var trace = document.createElement("div");
+            trace.style.position = "fixed";
+            trace.style.top = y + "px";
+            trace.style.left = x + "px";
+            trace.style.width = "10px";
+            trace.style.height = "10px";
+            trace.style.borderRadius = "50%";
+            trace.style.backgroundColor = "#ff82c4";
+            trace.style.opacity = "0.5";
+            trace.style.pointerEvents = "none";
+            trace.style.transition = "opacity 0.5s ease";
+            
+            document.body.appendChild(trace);
+            
+            setTimeout(function() {
+                trace.style.opacity = "0";
+                setTimeout(function() {
+                    document.body.removeChild(trace);
+                }, 500);
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site - Se connecter</title>
+    <style>
+        body {
+            background-color: #ff82c4;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .connexion-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .connexion-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .connexion-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .connexion-form input[type="email"],
+        .connexion-form input[type="password"] {
+            display: block;
+            width: 93%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .connexion-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .translate-select {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .translate-select select {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .return-button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="connexion-form">
+        <h2 data-translate="login_title">Se connecter</h2>
+        <form>
+            <label for="email" data-translate="email_label">Email :</label>
+            <input type="email" name="email" id="email" placeholder="Adresse e-mail" required>
+            <label for="password" data-translate="password_label">Mot de passe :</label>
+            <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+            <button type="submit" data-translate="login_button">Se connecter</button>
+        </form>
+        <!-- Bouton de retour -->
+        <button class="return-button" onclick="window.location.href='Mon Site.html'" data-translate="return_button">Retour</button>
+    </div>
+
+    <div class="translate-select">
+        <select onchange="changeLanguage(this.value)">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+            <option value="ar">عربى</option>
+        </select>
+    </div>
+
+    <script>
+        function changeLanguage(language) {
+            var translations = {
+                'fr': {
+                    'login_title': 'Se connecter',
+                    'email_label': 'Email :',
+                    'password_label': 'Mot de passe :',
+                    'login_button': 'Se connecter',
+                    'return_button': 'Retour'
+                },
+                'en': {
+                    'login_title': 'Log In',
+                    'email_label': 'Email:',
+                    'password_label': 'Password:',
+                    'login_button': 'Log In',
+                    'return_button': 'Return'
+                },
+                'es': {
+                    'login_title': 'Iniciar sesión',
+                    'email_label': 'Correo electrónico:',
+                    'password_label': 'Contraseña:',
+                    'login_button': 'Iniciar sesión',
+                    'return_button': 'Volver'
+                },
+                'zh': {
+                    'login_title': '登录',
+                    'email_label': '电子邮件：',
+                    'password_label': '密码：',
+                    'login_button': '登录',
+                    'return_button': '返回'
+                },
+                'ar': {
+                    'login_title': 'تسجيل الدخول',
+                    'email_label': 'البريد الإلكتروني:',
+                    'password_label': 'كلمة المرور:',
+                    'login_button': 'تسجيل الدخول',
+                    'return_button': 'العودة'
+                }
+            };
+
+            var translationsToApply = translations[language];
+            var elementsToTranslate = document.querySelectorAll('[data-translate]');
+
+            elementsToTranslate.forEach(function(element) {
+                var key = element.getAttribute('data-translate');
+                if (translationsToApply[key]) {
+                    element.innerText = translationsToApply[key];
+                }
+            });
+
+            document.title = translationsToApply['login_title'];
+        }
+    </script>
+</body>
+</html>

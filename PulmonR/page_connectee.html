@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site - Connecté</title>
+    <style>
+        /* Style pour la barre de navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff82c4;
+            color: #000000;
+            padding: 10px;
+        }
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        nav img {
+            height: 50px;
+            margin-left: 10px;
+        }
+        
+        /* Style pour l'image agrandie */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .image-container img {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <img src="logo_pulmonr.png" alt="Logo de Pulmon'R">
+        <a href="connexion.html">Se connecter</a>
+        <a href="inscription.html">S'inscrire</a>
+        <a href="découvrir.html">Découvrir</a>
+        <a href="faq.html">F.A.Q</a>
+        <a href="Boutique.html">Boutique</a>
+        <a href="mentions_legales.html">Mentions légales</a>
+    </nav>
+
+    <!-- Contenu de la page connectée -->
+    <h1>Bienvenue sur votre compte !</h1>
+    <p>Nom d'utilisateur: <span id="username"></span></p>
+    
+    <!-- Image agrandie -->
+    <div class="image-container">
+        <img src="Connecte.png" alt="Votre image">
+    </div>
+
+    <script>
+        // Récupérer le nom d'utilisateur depuis la page de connexion
+        var params = new URLSearchParams(window.location.search);
+        var username = params.get("username");
+        document.getElementById("username").textContent = username;
+    </script>
+</body>
+</html>

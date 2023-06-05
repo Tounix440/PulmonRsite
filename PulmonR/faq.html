@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site - F.A.Q</title>
+    <style>
+        /* Style CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style de la barre de navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff82c4;
+            color: #000000;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav img {
+            height: 50px;
+            margin-left: 10px;
+        }
+
+        /* Style du contenu de la page */
+        .content {
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        li a {
+            display: block;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #000000;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #ff82c4;
+            color: #ffffff;
+        }
+
+        .contact {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .contact p {
+            margin-bottom: 5px;
+        }
+
+        .contact .phone-icon,
+        .contact .email-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .contact .phone {
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .contact .email {
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .contact .copy-button {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #000000;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .translate-select {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .translate-select select {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <img src="logo_pulmonr.png" alt="Logo de Pulmon'R">
+        <a href="connexion.html">Se connecter</a>
+        <a href="inscription.html">S'inscrire</a>
+        <a href="découvrir.html">Découvrir</a>
+        <a href="faq.html">F.A.Q</a>
+        <a href="Boutique.html">Boutique</a>
+        <a href="mentions_legales.html">Mentions légales</a>
+    </nav>
+
+    <!-- Sélecteur de langue -->
+    <div class="translate-select">
+        <select onchange="changeLanguage(this.value)">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+
+    <!-- Contenu de la page FAQ -->
+    <div class="content">
+        <h1 data-translate="faq_title">Foire aux questions (FAQ)</h1>
+        <ul>
+            <li><a href="question1.html" data-translate="question1">Question 1 : Pourquoi mon Pulmon'R clignotte</a></li>
+            <li><a href="question2.html" data-translate="question2">Question 2 : Comment télécharger l'application Pulmon'R</a></li>
+            <li><a href="question3.html" data-translate="question3">Question 3 : Comment changer la batterie de mon Pulmon'R</a></li>
+            <li><a href="question4.html" data-translate="question4">Question 4 : Comment nettoyer mon Pulmon'R</a></li>
+        </ul>
+    </div>
+
+    <!-- Mentions de contact -->
+    <div class="contact">
+        <p>
+            <img class="phone-icon" src="telephone.png" alt="Icone téléphone">
+            <span class="phone" data-translate="contact_phone">01 234 567 89</span>
+            <img class="email-icon" src="mail.png" alt="Icone email">
+            <span class="email" data-translate="contact_email">pulmonr.faq@gmail.com</span>
+            <button class="copy-button" onclick="copyEmail()" data-translate="copy_email">Copier l'adresse e-mail</button>
+        </p>
+    </div>
+
+    <script>
+        // Fonction pour copier l'adresse e-mail
+        function copyEmail() {
+            var email = 'pulmonr.faq@gmail.com';
+            navigator.clipboard.writeText(email);
+            alert('Adresse e-mail copiée : ' + email);
+        }
+
+        // Fonction pour changer la langue
+        function changeLanguage(language) {
+            var translations = {
+                'fr': {
+                    'faq_title': 'Foire aux questions (FAQ)',
+                    'question1': 'Question 1 : Pourquoi mon Pulmon\'R clignotte',
+                    'question2': 'Question 2 : Comment télécharger l\'application Pulmon\'R',
+                    'question3': 'Question 3 : Comment changer la batterie de mon Pulmon\'R',
+                    'question4': 'Question 4 : Comment nettoyer mon Pulmon\'R',
+                    'contact_phone': '01 234 567 89',
+                    'contact_email': 'pulmonr.faq@gmail.com',
+                    'copy_email': 'Copier l\'adresse e-mail'
+                },
+                'en': {
+                    'faq_title': 'Frequently Asked Questions (FAQ)',
+                    'question1': 'Question 1: Why is my Pulmon\'R blinking',
+                    'question2': 'Question 2: How to download the Pulmon\'R app',
+                    'question3': 'Question 3: How to change the battery of my Pulmon\'R',
+                    'question4': 'Question 4: How to clean my Pulmon\'R',
+                    'contact_phone': '01 234 567 89',
+                    'contact_email': 'pulmonr.faq@gmail.com',
+                    'copy_email': 'Copy the e-mail address'
+                },
+                'es': {
+                    'faq_title': 'Preguntas frecuentes (FAQ)',
+                    'question1': 'Pregunta 1: ¿Por qué parpadea mi Pulmon\'R',
+                    'question2': 'Pregunta 2: Cómo descargar la aplicación Pulmon\'R',
+                    'question3': 'Pregunta 3: Cómo cambiar la batería de mi Pulmon\'R',
+                    'question4': 'Pregunta 4: Cómo limpiar mi Pulmon\'R',
+                    'contact_phone': '01 234 567 89',
+                    'contact_email': 'pulmonr.faq@gmail.com',
+                    'copy_email': 'Copiar la dirección de correo electrónico'
+                },
+                'zh': {
+                    'faq_title': '常见问题 (FAQ)',
+                    'question1': '问题1：为什么我的Pulmon\'R闪烁',
+                    'question2': '问题2：如何下载Pulmon\'R应用程序',
+                    'question3': '问题3：如何更换Pulmon\'R的电池',
+                    'question4': '问题4：如何清洁我的Pulmon\'R',
+                    'contact_phone': '01 234 567 89',
+                    'contact_email': 'pulmonr.faq@gmail.com',
+                    'copy_email': '复制电子邮件地址'
+                },
+                'ar': {
+                    'faq_title': 'الأسئلة الشائعة (FAQ)',
+                    'question1': 'السؤال 1: لماذا يومض جهاز Pulmon\'R الخاص بي',
+                    'question2': 'السؤال 2: كيفية تنزيل تطبيق Pulmon\'R',
+                    'question3': 'السؤال 3: كيفية تغيير بطارية جهاز Pulmon\'R الخاص بي',
+                    'question4': 'السؤال 4: كيفية تنظيف جهاز Pulmon\'R الخاص بي',
+                    'contact_phone': '01 234 567 89',
+                    'contact_email': 'pulmonr.faq@gmail.com',
+                    'copy_email': 'نسخ عنوان البريد الإلكتروني'
+                }
+            };
+
+            var elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(function(element) {
+                var key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    element.innerHTML = translations[language][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
